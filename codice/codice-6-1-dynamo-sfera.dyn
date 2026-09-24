@@ -1,0 +1,283 @@
+{
+  "Uuid": "78120cf4-f777-5dfc-9bca-289b61ff036d",
+  "IsCustomNode": false,
+  "Description": "La sfera di contenimento della EC-01 (centro nel punto medio, raggio 6) e il punto Q a 2.72 dal centro: dentro. Palestra del capitolo 6.1; si apre anche in Dynamo Sandbox.",
+  "Name": "cap-6-1-dynamo-sfera",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "Id": "af7f6f71d4d55f21b62e5b5376eb7d60",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7695ec981ed2586aa9cfeed98de43033",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ce6ba076ad205b69812c6103961ce69d",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9b24c7dd2a68546c856a2952aac30179",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "Point.ByCoordinates(32.4, 18.2, 4);\n6;\nPoint.ByCoordinates(35, 19, 4);"
+    },
+    {
+      "Id": "5f802201fcba586692962c1dc66f077f",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "0fd389f2bcb558738908571298f67ef7",
+          "Name": "centerPoint",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "20d33db98465590c991a438548a70a5a",
+          "Name": "radius",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "609d2f3e5b835db7b68d87990ff52c78",
+          "Name": "Sphere",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Sphere.ByCenterPointRadius@Autodesk.DesignScript.Geometry.Point,double",
+      "Replication": "Auto",
+      "Description": "Create a Sphere centered at the input Point with the given radius.\n\nSphere.ByCenterPointRadius (centerPoint: Point, radius: double): Sphere"
+    },
+    {
+      "Id": "38f9aae1708258f0aedb371d01d620c0",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "56d2992f9d5c5133a80e72526d2d5b66",
+          "Name": "geometry",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2667bf210c7755d6afdbccc66b24246f",
+          "Name": "other",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "666c57f8ea5051df93b388c40f9def75",
+          "Name": "double",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.DistanceTo@Autodesk.DesignScript.Geometry.Geometry",
+      "Replication": "Auto",
+      "Description": "Obtain the distance from this geometry to another.\n\nGeometry.DistanceTo (other: Geometry): double"
+    },
+    {
+      "Id": "d706bfcc03df55a491380db6399edcbe",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "c94213cca34154a09b39ca697de09dcf",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "aae116779a55564c911ef812a303963f",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Replication": "Disabled",
+      "Description": "Visualizes the node's output",
+      "WatchWidth": 100.0,
+      "WatchHeight": 38.0
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7695ec981ed2586aa9cfeed98de43033",
+      "End": "0fd389f2bcb558738908571298f67ef7",
+      "Id": "47011eb9c40d522c8f2701efac4aa3bc",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ce6ba076ad205b69812c6103961ce69d",
+      "End": "20d33db98465590c991a438548a70a5a",
+      "Id": "198d4c3c7ffe5c859c819d46d9944265",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7695ec981ed2586aa9cfeed98de43033",
+      "End": "56d2992f9d5c5133a80e72526d2d5b66",
+      "Id": "30181ea4cf225050a4d929122a6f00e7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9b24c7dd2a68546c856a2952aac30179",
+      "End": "2667bf210c7755d6afdbccc66b24246f",
+      "Id": "76ff93c4a1b8592d93e60e5cac25c42c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "666c57f8ea5051df93b388c40f9def75",
+      "End": "c94213cca34154a09b39ca697de09dcf",
+      "Id": "cf9b248d585757d490063fed6d6394fc",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "EnableLegacyPolyCurveBehavior": true,
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [],
+  "Author": "",
+  "Linting": null,
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": 32.0,
+      "EyeY": 18.0,
+      "EyeZ": 24.0,
+      "LookX": 0.0,
+      "LookY": -10.0,
+      "LookZ": -18.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "af7f6f71d4d55f21b62e5b5376eb7d60",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 100.0,
+        "Y": 100.0
+      },
+      {
+        "Id": "5f802201fcba586692962c1dc66f077f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Sphere.ByCenterPointRadius",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 580.0,
+        "Y": 100.0
+      },
+      {
+        "Id": "38f9aae1708258f0aedb371d01d620c0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Geometry.DistanceTo",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 900.0,
+        "Y": 230.0
+      },
+      {
+        "Id": "d706bfcc03df55a491380db6399edcbe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1220.0,
+        "Y": 240.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 0.8
+  }
+}

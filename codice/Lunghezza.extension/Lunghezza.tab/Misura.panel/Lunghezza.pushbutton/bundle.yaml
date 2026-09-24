@@ -1,0 +1,6 @@
+title: Lunghezza
+tooltip: >-
+  Misura la lunghezza reale di un circuito: somma i tratti dritti e l'arco
+  dei raccordi, poi aggiunge il 5% di sfrido. Clicca il pulsante, seleziona
+  tutto il percorso nel modello e conferma con Finish.
+author: Paulo Giavoni

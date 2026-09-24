@@ -1,0 +1,283 @@
+{
+  "Uuid": "d4a93c08-fa23-566f-aec8-1bac505bfd60",
+  "IsCustomNode": false,
+  "Description": "Il piano: quota +4.00 orizzontale e la distanza del punto Q (z=4.05): 0.05 m. Palestra del capitolo 6.1; si apre anche in Dynamo Sandbox.",
+  "Name": "cap-6-1-dynamo-piano",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "Id": "af7f6f71d4d55f21b62e5b5376eb7d60",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "605940d008b95bce8ce43804b2555bd6",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "84e8bb371fd15b26b2ed712966ebd1d8",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9b24c7dd2a68546c856a2952aac30179",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "Point.ByCoordinates(0, 0, 4);\nVector.ZAxis();\nPoint.ByCoordinates(32.4, 18.2, 4.05);"
+    },
+    {
+      "Id": "c84d56a491295f7cbd1341f865624fb3",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "4f3226275c4f53d9a3c81703c1f7f52f",
+          "Name": "origin",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c935cf5717b75c3482864319e5e0a8e9",
+          "Name": "normal",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f1390c5b82275ddca3644b927ae9e456",
+          "Name": "Plane",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Plane.ByOriginNormal@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Vector",
+      "Replication": "Auto",
+      "Description": "Create a Plane centered at root Point, with input normal Vector.\n\nPlane.ByOriginNormal (origin: Point, normal: Vector): Plane"
+    },
+    {
+      "Id": "38f9aae1708258f0aedb371d01d620c0",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "56d2992f9d5c5133a80e72526d2d5b66",
+          "Name": "geometry",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2667bf210c7755d6afdbccc66b24246f",
+          "Name": "other",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "666c57f8ea5051df93b388c40f9def75",
+          "Name": "double",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.DistanceTo@Autodesk.DesignScript.Geometry.Geometry",
+      "Replication": "Auto",
+      "Description": "Obtain the distance from this geometry to another.\n\nGeometry.DistanceTo (other: Geometry): double"
+    },
+    {
+      "Id": "d706bfcc03df55a491380db6399edcbe",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "c94213cca34154a09b39ca697de09dcf",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "aae116779a55564c911ef812a303963f",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Replication": "Disabled",
+      "Description": "Visualizes the node's output",
+      "WatchWidth": 100.0,
+      "WatchHeight": 38.0
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "605940d008b95bce8ce43804b2555bd6",
+      "End": "4f3226275c4f53d9a3c81703c1f7f52f",
+      "Id": "4a11bc4b56f45ba68445aa7932e433f1",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "84e8bb371fd15b26b2ed712966ebd1d8",
+      "End": "c935cf5717b75c3482864319e5e0a8e9",
+      "Id": "7111fbe1dd20528c819c6ebbe3225038",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f1390c5b82275ddca3644b927ae9e456",
+      "End": "56d2992f9d5c5133a80e72526d2d5b66",
+      "Id": "a435101dadd65d299d6dd9830821a1da",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9b24c7dd2a68546c856a2952aac30179",
+      "End": "2667bf210c7755d6afdbccc66b24246f",
+      "Id": "76ff93c4a1b8592d93e60e5cac25c42c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "666c57f8ea5051df93b388c40f9def75",
+      "End": "c94213cca34154a09b39ca697de09dcf",
+      "Id": "cf9b248d585757d490063fed6d6394fc",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "EnableLegacyPolyCurveBehavior": true,
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [],
+  "Author": "",
+  "Linting": null,
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": 32.0,
+      "EyeY": 18.0,
+      "EyeZ": 24.0,
+      "LookX": 0.0,
+      "LookY": -10.0,
+      "LookZ": -18.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "af7f6f71d4d55f21b62e5b5376eb7d60",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 100.0,
+        "Y": 100.0
+      },
+      {
+        "Id": "c84d56a491295f7cbd1341f865624fb3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Plane.ByOriginNormal",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 580.0,
+        "Y": 100.0
+      },
+      {
+        "Id": "38f9aae1708258f0aedb371d01d620c0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Geometry.DistanceTo",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 900.0,
+        "Y": 160.0
+      },
+      {
+        "Id": "d706bfcc03df55a491380db6399edcbe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1220.0,
+        "Y": 170.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 0.8
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "Uuid": "43347f0e-f83c-5f52-a3e0-6816c12f3eb3",
+  "IsCustomNode": false,
+  "Description": "Il punto: gli estremi dell'asse della EC-01 e la distanza fra loro (12 m). Palestra del capitolo 6.1; si apre anche in Dynamo Sandbox.",
+  "Name": "cap-6-1-dynamo-punto",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "Id": "0056611537285da58aeff6a777346d0c",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9e89337ecb6f5db5b61d3a1d78a3b71b",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "288e79e2fcf150d79950a60ffdb4448e",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "Point.ByCoordinates(27.204, 15.2, 4);\nPoint.ByCoordinates(37.596, 21.2, 4);"
+    },
+    {
+      "Id": "38f9aae1708258f0aedb371d01d620c0",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "56d2992f9d5c5133a80e72526d2d5b66",
+          "Name": "geometry",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2667bf210c7755d6afdbccc66b24246f",
+          "Name": "other",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "666c57f8ea5051df93b388c40f9def75",
+          "Name": "double",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.DistanceTo@Autodesk.DesignScript.Geometry.Geometry",
+      "Replication": "Auto",
+      "Description": "Obtain the distance from this geometry to another.\n\nGeometry.DistanceTo (other: Geometry): double"
+    },
+    {
+      "Id": "d706bfcc03df55a491380db6399edcbe",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "c94213cca34154a09b39ca697de09dcf",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "aae116779a55564c911ef812a303963f",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Replication": "Disabled",
+      "Description": "Visualizes the node's output",
+      "WatchWidth": 100.0,
+      "WatchHeight": 38.0
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9e89337ecb6f5db5b61d3a1d78a3b71b",
+      "End": "56d2992f9d5c5133a80e72526d2d5b66",
+      "Id": "71d3fdf701c55da7a012d047713e67ca",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "288e79e2fcf150d79950a60ffdb4448e",
+      "End": "2667bf210c7755d6afdbccc66b24246f",
+      "Id": "e9300eb0358154c1b32f8b7bbebe446b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "666c57f8ea5051df93b388c40f9def75",
+      "End": "c94213cca34154a09b39ca697de09dcf",
+      "Id": "cf9b248d585757d490063fed6d6394fc",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "EnableLegacyPolyCurveBehavior": true,
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [],
+  "Author": "",
+  "Linting": null,
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": 32.0,
+      "EyeY": 18.0,
+      "EyeZ": 24.0,
+      "LookX": 0.0,
+      "LookY": -10.0,
+      "LookZ": -18.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "0056611537285da58aeff6a777346d0c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 100.0,
+        "Y": 100.0
+      },
+      {
+        "Id": "38f9aae1708258f0aedb371d01d620c0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Geometry.DistanceTo",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 640.0,
+        "Y": 110.0
+      },
+      {
+        "Id": "d706bfcc03df55a491380db6399edcbe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 960.0,
+        "Y": 120.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 0.8
+  }
+}

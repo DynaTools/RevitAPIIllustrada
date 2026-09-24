@@ -1,0 +1,535 @@
+{
+  "Uuid": "e827e8e8-e2fa-5b5b-ba02-9513ec67dc15",
+  "IsCustomNode": false,
+  "Description": "Grafo del capitolo 6.1 (primitive geometriche): il segmento della EC-01, il prodotto scalare e l'angolo -- geometria pura, si apre anche in Dynamo Sandbox.",
+  "Name": "cap-6-1-dynamo",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "Id": "0056611537285da58aeff6a777346d0c",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9e89337ecb6f5db5b61d3a1d78a3b71b",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "288e79e2fcf150d79950a60ffdb4448e",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "Point.ByCoordinates(0, 0, 0);\nPoint.ByCoordinates(12 * Math.Cos(30), 12 * Math.Sin(30), 0);"
+    },
+    {
+      "Id": "5d23dea6f34b5957b1c9039b775e208b",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "8c3bba9fb55f5a1eb4f17066dacb75cd",
+          "Name": "startPoint",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ce2324a465d25b1980f0c55d4958b3cf",
+          "Name": "endPoint",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "edd2f612601d55e0a41e571705f43d88",
+          "Name": "Line",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Replication": "Auto",
+      "Description": "Creates a straight Line between two input Points.\n\nLine.ByStartPointEndPoint (startPoint: Point, endPoint: Point): Line"
+    },
+    {
+      "Id": "d34c8f16dbb55df4b9fd4412d25c04dc",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "af74697bedb05869ba3dcf90f3086be0",
+          "Name": "curve",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "60d86ce0f90a5a7ca1299f10d811c12e",
+          "Name": "double",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.Length",
+      "Replication": "Auto",
+      "Description": "The total arc length of the curve\n\nCurve.Length: double"
+    },
+    {
+      "Id": "5c8609cc55645760b8d09f68c13ec718",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "816ee7fa5afd5c9984ea84465814fb59",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8713f7bd57b75e7ebccd11b919330196",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Replication": "Disabled",
+      "Description": "Visualizes the node's output",
+      "WatchWidth": 100.0,
+      "WatchHeight": 38.0
+    },
+    {
+      "Id": "0bb3c96da6925271a8b4370063f329e9",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "312130c24e5d58299ed25cc089e60e02",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "Vector.ByCoordinates(Math.Cos(30), Math.Sin(30), 0);"
+    },
+    {
+      "Id": "cc10246c0d1a5d26bad40dd6a427942a",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "82417613dc7c5d4b832c11e9f4b4711a",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "Vector.ByCoordinates(1, 0, 0);"
+    },
+    {
+      "Id": "d39e77e64499533e86dec0e9c14dc417",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "d110362b44255577a72cffe9cffe4ceb",
+          "Name": "vector",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "144148ab38dd5caf8d5ed8fe323bb5f6",
+          "Name": "otherVector",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1b2db2589ada569080ce3f1ccec48773",
+          "Name": "double",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.Dot@Autodesk.DesignScript.Geometry.Vector",
+      "Replication": "Auto",
+      "Description": "The dot product of this vector and the input vector.\n\nVector.Dot (otherVector: Vector): double"
+    },
+    {
+      "Id": "c31e0eab3e5a536fbe2d1dda6e232f59",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "43eec6d4c27e580e8fd03b5394282603",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c94e777cea6e55a6afb143c49aaebd89",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Replication": "Disabled",
+      "Description": "Visualizes the node's output",
+      "WatchWidth": 100.0,
+      "WatchHeight": 38.0
+    },
+    {
+      "Id": "0db6086eca4b5c62ba1c4a706e6a5cad",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "1bbfdd36e00f55d6a9249b1d9e09fd90",
+          "Name": "vector",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "58f5a9d73aca57cf9f01a705ea440222",
+          "Name": "otherVector",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e3b311b56c8c56aca3758d5084597b05",
+          "Name": "double",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.AngleWithVector@Autodesk.DesignScript.Geometry.Vector",
+      "Replication": "Auto",
+      "Description": "Returns the angle between the two vectors, in degrees.\n\nVector.AngleWithVector (otherVector: Vector): double"
+    },
+    {
+      "Id": "236fe437d9105004beafd7fd78ba2a08",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "bc7dbc00915e5b8fba16a599bc207fd3",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "22d2d61259c15f1b8433a967877bfd72",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Replication": "Disabled",
+      "Description": "Visualizes the node's output",
+      "WatchWidth": 100.0,
+      "WatchHeight": 38.0
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9e89337ecb6f5db5b61d3a1d78a3b71b",
+      "End": "8c3bba9fb55f5a1eb4f17066dacb75cd",
+      "Id": "94ea2ac0ccd55374a0eda912db0baf97",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "288e79e2fcf150d79950a60ffdb4448e",
+      "End": "ce2324a465d25b1980f0c55d4958b3cf",
+      "Id": "1649f2cf12bd5dff9c192eb64c416fee",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "edd2f612601d55e0a41e571705f43d88",
+      "End": "af74697bedb05869ba3dcf90f3086be0",
+      "Id": "b1aa4ed004ec52f896274cdcb0bf69b8",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "60d86ce0f90a5a7ca1299f10d811c12e",
+      "End": "816ee7fa5afd5c9984ea84465814fb59",
+      "Id": "22d4f37dd84d5efba29a9b8810ac6cc0",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "312130c24e5d58299ed25cc089e60e02",
+      "End": "d110362b44255577a72cffe9cffe4ceb",
+      "Id": "10963227909d5de593f23646d8537906",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "82417613dc7c5d4b832c11e9f4b4711a",
+      "End": "144148ab38dd5caf8d5ed8fe323bb5f6",
+      "Id": "6a9979d6bf22558f8c57abc096bdd7ab",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "312130c24e5d58299ed25cc089e60e02",
+      "End": "1bbfdd36e00f55d6a9249b1d9e09fd90",
+      "Id": "179761fbf1e757ec859ccdfb9aa5df98",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "82417613dc7c5d4b832c11e9f4b4711a",
+      "End": "58f5a9d73aca57cf9f01a705ea440222",
+      "Id": "b9f2beeda5205d0f8f15f11e2fa3899f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "1b2db2589ada569080ce3f1ccec48773",
+      "End": "43eec6d4c27e580e8fd03b5394282603",
+      "Id": "ddc380fc3a2c57698bd45146e8646495",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e3b311b56c8c56aca3758d5084597b05",
+      "End": "bc7dbc00915e5b8fba16a599bc207fd3",
+      "Id": "e51e92279f8e5ee099c09a86d3fcd787",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "EnableLegacyPolyCurveBehavior": true,
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [],
+  "Author": "",
+  "Linting": null,
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": 2.0,
+      "EyeY": 10.0,
+      "EyeZ": 14.0,
+      "LookX": 3.0,
+      "LookY": -8.0,
+      "LookZ": -12.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "0056611537285da58aeff6a777346d0c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 100.0,
+        "Y": 100.0
+      },
+      {
+        "Id": "5d23dea6f34b5957b1c9039b775e208b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Line.ByStartPointEndPoint",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 660.0,
+        "Y": 100.0
+      },
+      {
+        "Id": "d34c8f16dbb55df4b9fd4412d25c04dc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Curve.Length",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1000.0,
+        "Y": 110.0
+      },
+      {
+        "Id": "5c8609cc55645760b8d09f68c13ec718",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1260.0,
+        "Y": 115.0
+      },
+      {
+        "Id": "0bb3c96da6925271a8b4370063f329e9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 100.0,
+        "Y": 360.0
+      },
+      {
+        "Id": "cc10246c0d1a5d26bad40dd6a427942a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 100.0,
+        "Y": 490.0
+      },
+      {
+        "Id": "d39e77e64499533e86dec0e9c14dc417",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Vector.Dot",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 660.0,
+        "Y": 365.0
+      },
+      {
+        "Id": "c31e0eab3e5a536fbe2d1dda6e232f59",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1000.0,
+        "Y": 375.0
+      },
+      {
+        "Id": "0db6086eca4b5c62ba1c4a706e6a5cad",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Vector.AngleWithVector",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 660.0,
+        "Y": 530.0
+      },
+      {
+        "Id": "236fe437d9105004beafd7fd78ba2a08",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1000.0,
+        "Y": 540.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 0.7
+  }
+}

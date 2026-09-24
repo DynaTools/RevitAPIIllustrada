@@ -1,0 +1,398 @@
+{
+  "Uuid": "08063b60-df27-55d5-972e-499359670321",
+  "IsCustomNode": false,
+  "Description": "L'AABB: la scatola allineata agli assi attorno al segmento inclinato della EC-01. Palestra del capitolo 6.1; si apre anche in Dynamo Sandbox.",
+  "Name": "cap-6-1-dynamo-box",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "Id": "0056611537285da58aeff6a777346d0c",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9e89337ecb6f5db5b61d3a1d78a3b71b",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "288e79e2fcf150d79950a60ffdb4448e",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "Point.ByCoordinates(27.204, 15.2, 4);\nPoint.ByCoordinates(37.596, 21.2, 4);"
+    },
+    {
+      "Id": "5d23dea6f34b5957b1c9039b775e208b",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "8c3bba9fb55f5a1eb4f17066dacb75cd",
+          "Name": "startPoint",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ce2324a465d25b1980f0c55d4958b3cf",
+          "Name": "endPoint",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "edd2f612601d55e0a41e571705f43d88",
+          "Name": "Line",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Replication": "Auto",
+      "Description": "Creates a straight Line between two input Points.\n\nLine.ByStartPointEndPoint (startPoint: Point, endPoint: Point): Line"
+    },
+    {
+      "Id": "bb1d3bcbae1f5cac8b38c7df802b353e",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "bb68c6feec365b26845fb43af60fc77b",
+          "Name": "geom",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3cf82f8dad775adf9aa70841b797ae10",
+          "Name": "BoundingBox",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.BoundingBox.ByGeometry@Autodesk.DesignScript.Geometry.Geometry[]",
+      "Replication": "Auto",
+      "Description": "Construct an axis-aligned BoundingBox around input geometry.\n\nBoundingBox.ByGeometry (geom: Geometry[]): BoundingBox"
+    },
+    {
+      "Id": "cc4c8a3866dd591eaaea2c8f7aefb659",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "287427160ca85d8aaa41930fc393b83c",
+          "Name": "boundingBox",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f41648d481695dc780306a04c1cf47d7",
+          "Name": "Point",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.BoundingBox.MinPoint",
+      "Replication": "Auto",
+      "Description": "The minimum point of the bounding box.\n\nBoundingBox.MinPoint: Point"
+    },
+    {
+      "Id": "a85429d91d9f5909be85b3929975f9a2",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "0dbc1c43efda5f0d9b4bfb1cbc54e646",
+          "Name": "boundingBox",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6083fe4735c95d4fb4505007b36eda74",
+          "Name": "Point",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.BoundingBox.MaxPoint",
+      "Replication": "Auto",
+      "Description": "The maximum point of the bounding box.\n\nBoundingBox.MaxPoint: Point"
+    },
+    {
+      "Id": "525c7fd86e58520a8220db88377b3484",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "7cb2e1dcdb41598499f4c394cbd12d9f",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2ab21e79774f56b7994c64a43fbb27c5",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Replication": "Disabled",
+      "Description": "Visualizes the node's output",
+      "WatchWidth": 100.0,
+      "WatchHeight": 38.0
+    },
+    {
+      "Id": "ef21cced258e52e9b01409da5be30028",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "7e2fc3c043025c008d9aed7827a0d92e",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "721ff8431b805c27a4914f17fb8bc3f8",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Replication": "Disabled",
+      "Description": "Visualizes the node's output",
+      "WatchWidth": 100.0,
+      "WatchHeight": 38.0
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9e89337ecb6f5db5b61d3a1d78a3b71b",
+      "End": "8c3bba9fb55f5a1eb4f17066dacb75cd",
+      "Id": "94ea2ac0ccd55374a0eda912db0baf97",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "288e79e2fcf150d79950a60ffdb4448e",
+      "End": "ce2324a465d25b1980f0c55d4958b3cf",
+      "Id": "1649f2cf12bd5dff9c192eb64c416fee",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "edd2f612601d55e0a41e571705f43d88",
+      "End": "bb68c6feec365b26845fb43af60fc77b",
+      "Id": "73c79b7685b05b13826b044b5536ac39",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3cf82f8dad775adf9aa70841b797ae10",
+      "End": "287427160ca85d8aaa41930fc393b83c",
+      "Id": "43366e1fbb095ffaaffa4218a7413305",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3cf82f8dad775adf9aa70841b797ae10",
+      "End": "0dbc1c43efda5f0d9b4bfb1cbc54e646",
+      "Id": "a147f422374c5594902492139765a0c3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f41648d481695dc780306a04c1cf47d7",
+      "End": "7cb2e1dcdb41598499f4c394cbd12d9f",
+      "Id": "a28c112d35fa51b8a1e359c52ccbf96a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6083fe4735c95d4fb4505007b36eda74",
+      "End": "7e2fc3c043025c008d9aed7827a0d92e",
+      "Id": "94395f74a22e5bab87e7be6758ef667d",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "EnableLegacyPolyCurveBehavior": true,
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [],
+  "Author": "",
+  "Linting": null,
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": 32.0,
+      "EyeY": 18.0,
+      "EyeZ": 24.0,
+      "LookX": 0.0,
+      "LookY": -10.0,
+      "LookZ": -18.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "0056611537285da58aeff6a777346d0c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 100.0,
+        "Y": 160.0
+      },
+      {
+        "Id": "5d23dea6f34b5957b1c9039b775e208b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Line.ByStartPointEndPoint",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 640.0,
+        "Y": 160.0
+      },
+      {
+        "Id": "bb1d3bcbae1f5cac8b38c7df802b353e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "BoundingBox.ByGeometry",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 980.0,
+        "Y": 170.0
+      },
+      {
+        "Id": "cc4c8a3866dd591eaaea2c8f7aefb659",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "BoundingBox.MinPoint",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1320.0,
+        "Y": 100.0
+      },
+      {
+        "Id": "a85429d91d9f5909be85b3929975f9a2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "BoundingBox.MaxPoint",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1320.0,
+        "Y": 250.0
+      },
+      {
+        "Id": "525c7fd86e58520a8220db88377b3484",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1660.0,
+        "Y": 110.0
+      },
+      {
+        "Id": "ef21cced258e52e9b01409da5be30028",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1660.0,
+        "Y": 260.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 0.8
+  }
+}

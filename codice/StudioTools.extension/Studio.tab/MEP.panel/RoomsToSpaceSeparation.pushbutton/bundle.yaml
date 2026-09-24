@@ -1,0 +1,4 @@
+title: "Rooms to\nSpace Lines"
+tooltip: "Pick a linked architectural model: reads every placed Room, extracts its boundary loops (wall Finish face, inner loops included) and recreates them as Space Separation Lines in the current model, level by level. Linked levels are matched to host levels by elevation with the link transform applied. Safe to re-run: existing lines are never duplicated; an optional Replace mode deletes the separation lines on the selected levels first. Runs in a single transaction with full rollback on error or cancel."
+author: "Paulo Giavoni"
+min_revit_version: "2021"

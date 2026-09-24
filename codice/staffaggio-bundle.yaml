@@ -1,0 +1,6 @@
+title: Staffaggio
+tooltip: >
+  Verifica lo staffaggio di una passerella portacavi.
+  Clic sulla passerella, inserisci le quantita' dei cavi:
+  la passerella diventa verde se conforme, rossa se no.
+author: Paulo Giavoni
