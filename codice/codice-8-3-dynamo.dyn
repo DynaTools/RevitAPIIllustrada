@@ -1,7 +1,7 @@
 {
   "Uuid": "17bac859-afb0-5393-ab44-2ca9b81a9281",
   "IsCustomNode": false,
-  "Description": "Grafo del capitolo 7.1 (staffaggio): lettura, calcolo e scrittura delle staffe.",
+  "Description": "Grafo do capítulo 8.3 (suportação): leitura, cálculo e gravação dos suportes.",
   "Name": "cap-7-1-staffaggio",
   "ElementResolver": {
     "ResolutionMap": {}
@@ -170,7 +170,7 @@
         }
       ],
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
-      "Code": "# Cap. 7.1 - Calcolo delle staffe (support spacing)\nimport math\n\n# --- input dal grafo ---\nL   = IN[0]           # lunghezza del tratto (m)\nqta = IN[1]           # [n1, n2, n3] quantita' dei cavi lette dal modello\n\n# --- dati di progetto (catalogo) ---\nw_pass  = 5.00                 # kg/m, peso proprio della passerella\npesi    = [4.10, 1.35, 0.18]   # kg/m per FG16 4G95 / 5G16 / 3G2.5\ni       = 1.50                 # m, interasse di progetto\nportata = 152.9                # kg, portata staffa 41/600 (1500 N)\n\n# --- calcolo ---\nw = w_pass + sum(p * n for p, n in zip(pesi, qta))   # peso al metro\nF = w * i                                            # carico sulla staffa interna\nN = int(math.ceil(L / i)) + 1                        # numero di staffe\nesito = \"CONFORME\" if F <= portata else \"NON VERIFICATO\"\n\n# --- output: [numero di staffe, interasse] ---\nOUT = [N, i]\n",
+      "Code": "# Cap. 8.3 - Cálculo dos suportes (support spacing)\nimport math\n\n# --- entradas do grafo ---\nL   = IN[0]           # comprimento do trecho (m)\nqta = IN[1]           # [n1, n2, n3] quantidades de cabos lidas do modelo\n\n# --- dados de projeto (catálogo) ---\nw_pass  = 5.00                 # kg/m, peso próprio da eletrocalha\npesi    = [4.10, 1.35, 0.18]   # kg/m para FG16 4G95 / 5G16 / 3G2.5\ni       = 1.50                 # m, espaçamento de projeto\nportata = 152.9                # kg, capacidade do suporte 41/600 (1500 N)\n\n# --- cálculo ---\nw = w_pass + sum(p * n for p, n in zip(pesi, qta))   # peso por metro\nF = w * i                                            # carga no suporte interno\nN = int(math.ceil(L / i)) + 1                        # número de suportes\nesito = \"CONFORME\" if F <= portata else \"NÃO CONFORME\"\n\n# --- saída: [número de suportes, espaçamento] ---\nOUT = [N, i]\n",
       "Engine": "CPython3",
       "VariableInputPorts": true,
       "Replication": "Disabled",
@@ -273,7 +273,7 @@
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "Replication": "Disabled",
       "Description": "Allows for DesignScript code to be authored directly",
-      "Code": "\"Staffe n\";\n\"Staffe interasse\";"
+      "Code": "\"Qtd suportes\";\n\"Espaçamento suportes\";"
     },
     {
       "Id": "b17af323e7815191b4946cfaf5474c4f",

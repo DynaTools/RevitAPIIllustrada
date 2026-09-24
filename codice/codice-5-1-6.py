@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__title__ = "Rinomina\nWorkset"
+__title__ = "Renomear\nWorkset"
 __doc__ = "Renomeia os worksets do projeto a partir de uma interface."
 __author__ = "Paulo Giavoni"
 
@@ -88,7 +88,7 @@ xaml_str = """
                 <Button x:Name="btn_rename" Content="Renomear" Width="100" Height="30"
                         Margin="0,0,8,0"
                         Background="#2C3E50" Foreground="White" FontWeight="SemiBold"/>
-                <Button x:Name="btn_cancel" Content="Fechar" Width="100" Height="30"/>
+               <Button x:Name="btn_cancel" Content="Cancelar" Width="100" Height="30"/>
             </StackPanel>
         </Grid>
     </Border>

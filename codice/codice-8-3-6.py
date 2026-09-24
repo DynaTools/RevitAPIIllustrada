@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Revit API Ilustrada em Python - Paulo Giavoni
 # Código 8.3.6  |  Capítulo 8.3 - A suportação
-# Seção: No pyRevit - o botão "Staffaggio"
+# Seção: No pyRevit - o botão "Suportes"
 #
 # Clique na eletrocalha -> janela dos cabos -> mesma
 # conta dos Passos 1-4 -> a eletrocalha fica VERDE se
@@ -54,7 +54,7 @@ CATALOGO = [
 # ==========================================================
 #  2. A JANELA DOS CABOS                              [PY]
 # ==========================================================
-class StaffaggioWindow(forms.WPFWindow):
+class SuportesWindow(forms.WPFWindow):
     # preenche a casca XAML: uma linha por cabo
 
     def __init__(self, xaml, catalogo):
@@ -144,13 +144,13 @@ tratto = doc.GetElement(rif.ElementId)
 curva  = getattr(tratto.Location, "Curve", None)
 if curva is None:
     forms.alert("A seleção não tem um comprimento.",
-                title="Staffaggio", exitscript=True)
+                title="Suportes", exitscript=True)
 L = in_metri(curva.Length)
 
 # 4.2  a janela dos cabos                     [PY]
 qui  = os.path.dirname(__file__)
-XAML = os.path.join(qui, "StaffaggioWindow.xaml")
-finestra = StaffaggioWindow(XAML, CATALOGO)
+XAML = os.path.join(qui, "SuportesWindow.xaml")
+finestra = SuportesWindow(XAML, CATALOGO)
 finestra.ShowDialog()
 if finestra.quantita is None:
     script.exit()             # fechada sem Verifica
@@ -168,12 +168,12 @@ conforme = (F <= PORTATA_KG) and (INTERASSE <= i_max)
 
 # 4.4  o resultado VISTO: pinta a eletrocalha [REVIT]
 colore = VERDE if conforme else ROSSO
-with revit.Transaction("Staffaggio"):
+with revit.Transaction("Suportes"):
     colora(doc.ActiveView, tratto, colore)
 
 # 4.5  resumo com id clicável (linkify)       [OUT]
 esito = "CONFORME" if conforme else "NÃO CONFORME"
-out.print_md("# Staffaggio &mdash; {0}".format(esito))
+out.print_md("# Suportes &mdash; {0}".format(esito))
 out.print_md(
     "Eletrocalha: {0}".format(out.linkify(tratto.Id)))
 out.print_md("- Comprimento  L = **{0:.2f} m**".format(L))

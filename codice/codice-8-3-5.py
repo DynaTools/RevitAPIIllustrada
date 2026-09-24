@@ -34,8 +34,8 @@ tot = 0
 t = Transaction(doc, "Suportação do modelo")
 t.Start()
 for tr in tratti:
-    par_n = tr.LookupParameter("Staffe n")
-    par_i = tr.LookupParameter("Staffe interasse")
+    par_n = tr.LookupParameter("Qtd suportes")
+    par_i = tr.LookupParameter("Espaçamento suportes")
     if par_n is None or par_i is None:
         print("{}: PULADO, parâmetros de suporte ausentes".format(tr.Name))
         continue

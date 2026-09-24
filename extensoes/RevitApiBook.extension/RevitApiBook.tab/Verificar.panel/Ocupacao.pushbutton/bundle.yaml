@@ -1,0 +1,7 @@
+title: Ocupação
+tooltip: >-
+  Verificação da taxa de ocupação de um eletroduto segundo a CEI 64-8.
+  Clique no botão e selecione o eletroduto: o trecho fica verde
+  se conforme, amarelo se a norma passa mas a ocupação supera os 40%
+  da boa prática, vermelho se o tubo é mais estreito que o mínimo da norma.
+author: Paulo Giavoni

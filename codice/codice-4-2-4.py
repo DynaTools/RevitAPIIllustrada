@@ -10,8 +10,8 @@ if not ids:                          # 1) nada selecionado?
     print("Selecione um elemento antes.")
 else:
     el = doc.GetElement(ids[0])
-    p = el.LookupParameter("Commenti")   # 2) pode ser None
-    if p and not p.IsReadOnly:           # 3) pode ser somente leitura
+    p = el.LookupParameter("Comentários") # 2) pode ser None
+    if p and not p.IsReadOnly:            # 3) pode ser somente leitura
         t = Transaction(doc, "Verificado no selecionado")
         t.Start()
         p.Set("Verificado")

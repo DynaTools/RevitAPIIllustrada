@@ -1,7 +1,7 @@
 {
   "Uuid": "d4a93c08-fa23-566f-aec8-1bac505bfd60",
   "IsCustomNode": false,
-  "Description": "Il piano: quota +4.00 orizzontale e la distanza del punto Q (z=4.05): 0.05 m. Palestra del capitolo 6.1; si apre anche in Dynamo Sandbox.",
+  "Description": "O plano: o horizontal na cota +4.00 e a distância do ponto Q (z=4.05): 0.05 m. Academia do capítulo 6.1; abre também no Dynamo Sandbox.",
   "Name": "cap-6-1-dynamo-piano",
   "ElementResolver": {
     "ResolutionMap": {

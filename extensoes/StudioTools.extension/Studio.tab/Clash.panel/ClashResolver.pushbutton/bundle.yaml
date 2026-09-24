@@ -1,0 +1,5 @@
+title: "Clash\nResolver"
+tooltip: "Detecta clashes entre o modelo Host e um link, calcula o menor deslocamento (MTV) para separar e move os elementos do Host. Marca como resolvíveis os clashes com penetração até o limite em mm; o usuário seleciona e clica em Resolver selecionados. Só move elementos do Host (elementos dentro de links não podem ser movidos pelo host)."
+author: "Paulo Giavoni"
+engine_type: cpython
+min_revit_version: "2021"

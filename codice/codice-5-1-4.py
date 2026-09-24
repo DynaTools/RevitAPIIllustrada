@@ -9,7 +9,7 @@ from pyrevit import forms
 class Finestra(forms.WPFWindow):
     def __init__(self):
         # carrega o .xaml que fica ao lado do script
-        forms.WPFWindow.__init__(self, "Finestra.xaml")
+        forms.WPFWindow.__init__(self, "janela-exemplo.xaml")
         self.risposta = None
 
     # método ligado a  Click="ok_click"  no XAML

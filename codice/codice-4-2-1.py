@@ -8,5 +8,5 @@ el = doc.GetElement(list(target)[0])          # pega o primeiro (e único)
 
 t = Transaction(doc, "Replicar - teste")    # LEI I
 t.Start()
-el.LookupParameter("Commenti").Set("TESTE-REPLICAR")
+el.LookupParameter("Comentários").Set("TESTE-REPLICAR")
 t.Commit()

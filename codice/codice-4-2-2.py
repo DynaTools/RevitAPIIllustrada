@@ -9,5 +9,5 @@ el = doc.GetElement(list(target)[0])
 
 t = Transaction(doc, "Replicar - teste")
 t.Start()
-el.LookupParameter("Commenti").Set("TESTE-REPLICAR")
+el.LookupParameter("Comentários").Set("TESTE-REPLICAR")
 t.Commit()

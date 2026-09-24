@@ -729,7 +729,7 @@
       },
       {
         "Id": "0602e3c85621482db4177485e1615697",
-        "Name": "Arco = raggio x angolo (rad)",
+        "Name": "Arco = raio x ângulo (rad)",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,

@@ -113,7 +113,7 @@ def codice_locale(s):
 #    o coordenador revisa no Excel, o Passo 3 aplica
 # ============================================================
 percorso = os.path.join(os.path.expanduser("~"), "Documents",
-                        "wbs_elementi.csv")
+                        "wbs_elementos.csv")
 righe = []
 for bic, (t01, t02) in DIZIONARIO.items():
     for el in (FilteredElementCollector(doc).OfCategory(bic)

@@ -31,7 +31,7 @@ def parametro(elem, *nomi):
 #    o usuário seleciona TODO o percurso: trechos e conexões
 # ============================================================
 refs = uidoc.Selection.PickObjects(ObjectType.Element,
-                                   "Selecione todo o percurso, depois Finish")
+                                   "Selecione todo o percurso, depois Concluir")
 
 # ============================================================
 # 2. PASSO 2, A SOMA 3D                        [REVIT] + [ENG]
@@ -56,8 +56,8 @@ for r in refs:
     else:
         # conexão (curva): o seu comprimento é o ARCO
         # arco = raio x ângulo  (o ângulo já está em radianos, Lei II)
-        p_raggio = parametro(elem, "Bend Radius", "Raggio di curvatura")
-        p_angolo = parametro(elem, "Angle", "Angolo")
+        p_raggio = parametro(elem, "Bend Radius", "Raio de curvatura")
+        p_angolo = parametro(elem, "Angle", "Ângulo")
         if p_raggio and p_angolo:
             raggio = p_raggio.AsDouble()  # raio de curvatura, em pés
             angolo = p_angolo.AsDouble()  # ângulo da dobra, em radianos

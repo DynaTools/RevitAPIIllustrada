@@ -32,7 +32,7 @@ for ds in FilteredElementCollector(doc).OfClass(DirectShape):
     if cat.Id.IntegerValue != int(BuiltInCategory.OST_Mass):
         continue
     nome = ds.Name
-    if nome.startswith("Clash conduit") or nome.startswith("Foro D"):
+    if nome.startswith("Clash eletroduto") or nome.startswith("Furo D"):
         vecchie.append(ds.Id)
 for vid in vecchie:
     doc.Delete(vid)

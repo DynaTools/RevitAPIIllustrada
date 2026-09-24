@@ -8,7 +8,7 @@ count, skipped = 0, 0
 t = Transaction(doc, "Preencher em bloco - defensivo")
 t.Start()
 for el in targets:
-    p = el.LookupParameter("COD_LOCALE")
+    p = el.LookupParameter("COD_AMBIENTE")
     if p and not p.IsReadOnly:        # a linha que salva o bloco
         p.Set(value)
         count += 1

@@ -29,14 +29,14 @@ N     = int(math.ceil(L_run / INTERASSE)) + 1
 #    LookupParameter -> None se o parâmetro não existe;
 #    Set -> False se existe mas não pode ser escrito.
 # ============================================================
-par_n = tray.LookupParameter("Staffe n")
-par_i = tray.LookupParameter("Staffe interasse")
+par_n = tray.LookupParameter("Qtd suportes")
+par_i = tray.LookupParameter("Espaçamento suportes")
 
 if par_n is None or par_i is None:
-    print("ERRO: faltam no trecho os parâmetros 'Staffe n'")
-    print("e/ou 'Staffe interasse'. Crie-os como parâmetros de")
+    print("ERRO: faltam no trecho os parâmetros 'Qtd suportes'")
+    print("e/ou 'Espaçamento suportes'. Crie-os como parâmetros de")
     print("projeto de INSTÂNCIA na categoria Eletrocalhas:")
-    print("  Staffe n -> Inteiro, Staffe interasse -> Comprimento")
+    print("  Qtd suportes -> Inteiro, Espaçamento suportes -> Comprimento")
 else:
     t = Transaction(doc, "Suportação EC-01")
     t.Start()
@@ -44,8 +44,8 @@ else:
     ok_i = par_i.Set(INTERASSE / FT_M)     # em pés
     t.Commit()
     if ok_n and ok_i:
-        print("Gravados no trecho: Staffe n = {}, "
-              "interasse = {:.2f} m".format(N, INTERASSE))
+        print("Gravados no trecho: Qtd suportes = {}, "
+              "espaçamento = {:.2f} m".format(N, INTERASSE))
     else:
         print("ERRO: escrita recusada (Set = False),")
         print("confira o tipo e a instância dos parâmetros.")

@@ -1,0 +1,4 @@
+title: "Rooms to\nSpace Lines"
+tooltip: "Escolha um modelo de arquitetura vinculado: lê todos os ambientes (Rooms) posicionados, extrai os contornos (face de acabamento das paredes, contornos internos incluídos) e os recria como linhas de separação de espaço no modelo atual, nível por nível. Os níveis do link são associados aos do modelo atual pela elevação, com a transformação do link aplicada. Pode ser executado de novo: as linhas existentes nunca são duplicadas; o modo opcional Substituir apaga antes as linhas de separação dos níveis selecionados. Roda numa única transação, com reversão completa em caso de erro ou cancelamento."
+author: "Paulo Giavoni"
+min_revit_version: "2021"

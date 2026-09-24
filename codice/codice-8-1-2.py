@@ -15,7 +15,7 @@ FT_M  = 0.3048
 uidoc = __revit__.ActiveUIDocument
 doc   = uidoc.Document
 refs  = uidoc.Selection.PickObjects(ObjectType.Element,
-                                    "Selecione todo o percurso, depois Finish")
+                                    "Selecione todo o percurso, então Concluir")
 
 # ============================================================
 # 1. PASSO 3, 3D CONTRA PLANTA                           [ENG]

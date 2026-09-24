@@ -16,7 +16,7 @@ doc   = uidoc.Document
 app   = doc.Application
 
 PARAMETRI = ["WBS_s01", "WBS_s02", "WBS_s03",
-             "WBS_t01", "WBS_t02", "WBS_CODICE"]
+             "WBS_t01", "WBS_t02", "WBS_CODIGO"]
 CATEGORIE = [BuiltInCategory.OST_Conduit,
              BuiltInCategory.OST_ConduitFitting,
              BuiltInCategory.OST_CableTray,
@@ -34,7 +34,7 @@ CATEGORIE = [BuiltInCategory.OST_Conduit,
 #    se não existe, nasce aqui, com o cabeçalho mínimo
 # ============================================================
 percorso = os.path.join(os.path.expanduser("~"), "Documents",
-                        "wbs_condivisi.txt")
+                        "wbs_compartilhados.txt")
 if not os.path.exists(percorso):
     with open(percorso, "w", encoding="utf-16") as f:
         f.write("# This is a Revit shared parameter file.\n"

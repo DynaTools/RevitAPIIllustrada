@@ -1,7 +1,7 @@
 {
   "Uuid": "f2eee5cc-7cf0-4baf-b524-e0b689c861bf",
   "IsCustomNode": false,
-  "Description": "Forometria in Dynamo - il clash esatto: i solidi dei conduit scelti contro le strutture del link, DirectShape per il coordinamento",
+  "Description": "Furação no Dynamo - o clash exato: os sólidos dos eletrodutos escolhidos contra as estruturas do link, DirectShape para a coordenação",
   "Name": "codice-7-1-dynamo",
   "ElementResolver": {
     "ResolutionMap": {}
@@ -81,7 +81,7 @@
     },
     {
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
-      "Code": "# Le strutture del link vicine ai conduit scelti, nel nostro mondo.\n# La scrematura a scatole (Parte 6) vive qui: si convertono SOLO i\n# solidi che possono toccare i conduit, non tutto il link.\nimport clr\nclr.AddReference('RevitAPI')\nfrom Autodesk.Revit.DB import (FilteredElementCollector,\n    BuiltInCategory, Options, Solid, GeometryInstance, XYZ)\nclr.AddReference('RevitNodes')\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n\nlink   = UnwrapElement(IN[0])          # RevitLinkInstance\nscelti = [UnwrapElement(e) for e in IN[1]]\nldoc = link.GetLinkDocument()\ntr   = link.GetTotalTransform()        # mondo del link -> il nostro\ninv  = tr.Inverse\ncs   = tr.ToCoordinateSystem()\n\ndef scatola(el, t=None):\n    bb = el.get_BoundingBox(None)\n    if bb is None:\n        return None\n    if t is None:\n        return (bb.Min.X, bb.Min.Y, bb.Min.Z,\n                bb.Max.X, bb.Max.Y, bb.Max.Z)\n    xs, ys, zs = [], [], []\n    for x in (bb.Min.X, bb.Max.X):\n        for y in (bb.Min.Y, bb.Max.Y):\n            for z in (bb.Min.Z, bb.Max.Z):\n                p = t.OfPoint(XYZ(x, y, z))\n                xs.append(p.X); ys.append(p.Y); zs.append(p.Z)\n    return (min(xs), min(ys), min(zs), max(xs), max(ys), max(zs))\n\ndef si_toccano(a, b, g=0.5):           # gioco in piedi (~15 cm)\n    return (a[0]-g <= b[3] and b[0]-g <= a[3] and\n            a[1]-g <= b[4] and b[1]-g <= a[4] and\n            a[2]-g <= b[5] and b[2]-g <= a[5])\n\n# le scatole dei conduit scelti, portate nel mondo del link\nscatole = [s for s in (scatola(el, inv) for el in scelti) if s]\n\nCATEGORIE = [BuiltInCategory.OST_Walls,\n             BuiltInCategory.OST_Floors,\n             BuiltInCategory.OST_StructuralFraming]\nsolidi, scartati = [], 0\nfor cat in CATEGORIE:\n    for el in (FilteredElementCollector(ldoc).OfCategory(cat)\n               .WhereElementIsNotElementType()):\n        b = scatola(el)\n        if b is None or not any(si_toccano(a, b) for a in scatole):\n            continue                   # lontano: non si converte\n        for g in el.get_Geometry(Options()):\n            pezzi = (g.GetInstanceGeometry()\n                     if isinstance(g, GeometryInstance) else [g])\n            for s in pezzi:\n                if isinstance(s, Solid) and s.Volume > 1e-6:\n                    # qualche faccia non sopravvive alla\n                    # conversione Revit -> Dynamo: si salta\n                    try:\n                        solidi.append(\n                            s.ToProtoType().Transform(cs))\n                    except Exception:\n                        scartati += 1\nOUT = solidi\n",
+      "Code": "# As estruturas do link próximas aos eletrodutos escolhidos, no nosso mundo.\n# A triagem por caixas (Parte 6) vive aqui: só se convertem os\n# sólidos que podem tocar os eletrodutos, não o link inteiro.\nimport clr\nclr.AddReference('RevitAPI')\nfrom Autodesk.Revit.DB import (FilteredElementCollector,\n    BuiltInCategory, Options, Solid, GeometryInstance, XYZ)\nclr.AddReference('RevitNodes')\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\n\nlink   = UnwrapElement(IN[0])          # RevitLinkInstance\nscelti = [UnwrapElement(e) for e in IN[1]]\nldoc = link.GetLinkDocument()\ntr   = link.GetTotalTransform()        # mundo do link -> o nosso\ninv  = tr.Inverse\ncs   = tr.ToCoordinateSystem()\n\ndef scatola(el, t=None):\n    bb = el.get_BoundingBox(None)\n    if bb is None:\n        return None\n    if t is None:\n        return (bb.Min.X, bb.Min.Y, bb.Min.Z,\n                bb.Max.X, bb.Max.Y, bb.Max.Z)\n    xs, ys, zs = [], [], []\n    for x in (bb.Min.X, bb.Max.X):\n        for y in (bb.Min.Y, bb.Max.Y):\n            for z in (bb.Min.Z, bb.Max.Z):\n                p = t.OfPoint(XYZ(x, y, z))\n                xs.append(p.X); ys.append(p.Y); zs.append(p.Z)\n    return (min(xs), min(ys), min(zs), max(xs), max(ys), max(zs))\n\ndef si_toccano(a, b, g=0.5):           # folga em pés (~15 cm)\n    return (a[0]-g <= b[3] and b[0]-g <= a[3] and\n            a[1]-g <= b[4] and b[1]-g <= a[4] and\n            a[2]-g <= b[5] and b[2]-g <= a[5])\n\n# as caixas dos eletrodutos escolhidos, levadas ao mundo do link\nscatole = [s for s in (scatola(el, inv) for el in scelti) if s]\n\nCATEGORIE = [BuiltInCategory.OST_Walls,\n             BuiltInCategory.OST_Floors,\n             BuiltInCategory.OST_StructuralFraming]\nsolidi, scartati = [], 0\nfor cat in CATEGORIE:\n    for el in (FilteredElementCollector(ldoc).OfCategory(cat)\n               .WhereElementIsNotElementType()):\n        b = scatola(el)\n        if b is None or not any(si_toccano(a, b) for a in scatole):\n            continue                   # longe: não se converte\n        for g in el.get_Geometry(Options()):\n            pezzi = (g.GetInstanceGeometry()\n                     if isinstance(g, GeometryInstance) else [g])\n            for s in pezzi:\n                if isinstance(s, Solid) and s.Volume > 1e-6:\n                    # algumas faces não sobrevivem à\n                    # conversão Revit -> Dynamo: são puladas\n                    try:\n                        solidi.append(\n                            s.ToProtoType().Transform(cs))\n                    except Exception:\n                        scartati += 1\nOUT = solidi\n",
       "Engine": "CPython3",
       "EngineName": "CPython3",
       "VariableInputPorts": true,
@@ -229,7 +229,7 @@
       ],
       "Replication": "Disabled",
       "Description": "Allows for DesignScript code to be authored directly",
-      "Code": "\"Clash conduit\";"
+      "Code": "\"Clash eletroduto\";"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -494,7 +494,7 @@
       },
       {
         "Id": "04993560c715406cbb3be5ee4c3c5e84",
-        "Name": "Le strutture vicine (Python)",
+        "Name": "As estruturas próximas (Python)",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -514,7 +514,7 @@
       },
       {
         "Id": "c7e51d356c5a4021bf015d6d78b0271e",
-        "Name": "I volumi del clash",
+        "Name": "Os volumes do clash",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -534,7 +534,7 @@
       },
       {
         "Id": "63170b6943d846d5b394279d5bf1bcbf",
-        "Name": "Il nome della DirectShape",
+        "Name": "O nome da DirectShape",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -564,7 +564,7 @@
       },
       {
         "Id": "1a3e6498ac9d4d8b9482bc75f2436127",
-        "Name": "Clash trovati",
+        "Name": "Clashes encontrados",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -576,7 +576,7 @@
     "Annotations": [
       {
         "Id": "0bec008dcfc247b5af8e64a8f1c33903",
-        "Title": "1 - I conduit scelti, in geometria",
+        "Title": "1 - Os eletrodutos escolhidos, em geometria",
         "DescriptionText": "",
         "IsExpanded": true,
         "WidthAdjustment": 0.0,
@@ -599,7 +599,7 @@
       },
       {
         "Id": "e5a27167b9f846b18a5e5af2efc55f10",
-        "Title": "2 - Il link e la scrematura a scatole",
+        "Title": "2 - O link e a triagem por caixas",
         "DescriptionText": "",
         "IsExpanded": true,
         "WidthAdjustment": 0.0,
@@ -622,7 +622,7 @@
       },
       {
         "Id": "03ef77b358844b4a8c0780eafeca5f41",
-        "Title": "3 - Il clash: solido contro solido",
+        "Title": "3 - O clash: sólido contra sólido",
         "DescriptionText": "",
         "IsExpanded": true,
         "WidthAdjustment": 0.0,
@@ -645,7 +645,7 @@
       },
       {
         "Id": "c5e1b4376abd4e9fb5fb487fe1d381c9",
-        "Title": "4 - La posa per il coordinamento",
+        "Title": "4 - A colocação para a coordenação",
         "DescriptionText": "",
         "IsExpanded": true,
         "WidthAdjustment": 0.0,

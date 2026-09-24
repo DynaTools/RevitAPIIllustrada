@@ -14,7 +14,7 @@ FT_M  = 0.3048
 uidoc = __revit__.ActiveUIDocument
 doc   = uidoc.Document
 refs  = uidoc.Selection.PickObjects(ObjectType.Element,
-                                    "Selecione todo o percurso, depois Finish")
+                                    "Selecione todo o percurso, então Concluir")
 
 def parametro(elem, *nomi):
     # parâmetros de família: o nome segue o idioma da família
@@ -34,8 +34,8 @@ for r in refs:
     if isinstance(loc, LocationCurve):
         L_ft += loc.Curve.Length
     else:
-        p_raggio = parametro(elem, "Bend Radius", "Raggio di curvatura")
-        p_angolo = parametro(elem, "Angle", "Angolo")
+        p_raggio = parametro(elem, "Bend Radius", "Raio de curvatura")
+        p_angolo = parametro(elem, "Angle", "Ângulo")
         if p_raggio and p_angolo:
             L_ft += p_raggio.AsDouble() * p_angolo.AsDouble()
 

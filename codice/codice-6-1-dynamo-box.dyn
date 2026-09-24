@@ -1,7 +1,7 @@
 {
   "Uuid": "08063b60-df27-55d5-972e-499359670321",
   "IsCustomNode": false,
-  "Description": "L'AABB: la scatola allineata agli assi attorno al segmento inclinato della EC-01. Palestra del capitolo 6.1; si apre anche in Dynamo Sandbox.",
+  "Description": "O AABB: a caixa alinhada aos eixos em torno do segmento inclinado da EC-01. Academia do capítulo 6.1; abre também no Dynamo Sandbox.",
   "Name": "cap-6-1-dynamo-box",
   "ElementResolver": {
     "ResolutionMap": {

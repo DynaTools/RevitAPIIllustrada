@@ -1,7 +1,7 @@
 {
   "Uuid": "78120cf4-f777-5dfc-9bca-289b61ff036d",
   "IsCustomNode": false,
-  "Description": "La sfera di contenimento della EC-01 (centro nel punto medio, raggio 6) e il punto Q a 2.72 dal centro: dentro. Palestra del capitolo 6.1; si apre anche in Dynamo Sandbox.",
+  "Description": "A esfera envolvente da EC-01 (centro no ponto médio, raio 6) e o ponto Q a 2.72 do centro: dentro. Academia do capítulo 6.1; abre também no Dynamo Sandbox.",
   "Name": "cap-6-1-dynamo-sfera",
   "ElementResolver": {
     "ResolutionMap": {

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__title__ = "Cancella\nModelli di Vista"
+__title__ = "Apagar\nTemplates"
 __doc__ = "Apaga os templates de vista do projeto, escolhidos numa lista."
 __author__ = "Paulo Giavoni"
 
@@ -76,7 +76,7 @@ xaml_str = """
                 <Button x:Name="btn_delete" Content="Apagar" Width="100" Height="30"
                         IsEnabled="False" Margin="0,0,8,0"
                         Background="#C0392B" Foreground="White" FontWeight="SemiBold"/>
-                <Button x:Name="btn_cancel" Content="Fechar" Width="100" Height="30"/>
+               <Button x:Name="btn_cancel" Content="Cancelar" Width="100" Height="30"/>
             </StackPanel>
         </Grid>
     </Border>

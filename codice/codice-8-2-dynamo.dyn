@@ -1,7 +1,7 @@
 {
   "Uuid": "128b216b-e28d-5d72-a0b3-d18969df7b7a",
   "IsCustomNode": false,
-  "Description": "Grafo del capitolo sul riempimento dei cavidotti, tutto in nodi nativi: diametro interno, distinta dei cavi dai parametri di progetto, aree, verifica CEI 64-8 e colore dell'esito in vista.",
+  "Description": "Grafo do capítulo sobre a taxa de ocupação dos eletrodutos, todo em nós nativos: diâmetro interno, lista dos cabos a partir dos parâmetros de projeto, áreas, verificação CEI 64-8 e cor do resultado na vista.",
   "Name": "cap-7-2-riempimento",
   "ElementResolver": {
     "ResolutionMap": {}
@@ -430,7 +430,7 @@
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "Replication": "Disabled",
       "Description": "Allows for DesignScript code to be authored directly",
-      "Code": "Demin = 1.3 * Dt;\nnorma = De >= Demin;\nprassi = K <= 0.40;\nesito = norma ? (prassi ? \"CONFORME\" : \"AL LIMITE\") : \"NON CONFORME\";\ncolore = norma\n    ? (prassi ? Color.ByARGB(255, 0, 150, 60)\n              : Color.ByARGB(255, 235, 160, 0))\n    : Color.ByARGB(255, 200, 30, 30);\nreport = [\"De mm = \" + Math.Round(De, 1),\n          \"Riempimento % = \" + Math.Round(K * 100, 1),\n          \"Dt mm = \" + Math.Round(Dt, 1),\n          \"min 1,3 x Dt mm = \" + Math.Round(Demin, 1),\n          \"ESITO: \" + esito];"
+      "Code": "Demin = 1.3 * Dt;\nnorma = De >= Demin;\nprassi = K <= 0.40;\nesito = norma ? (prassi ? \"CONFORME\" : \"NO LIMITE\") : \"NÃO CONFORME\";\ncolore = norma\n    ? (prassi ? Color.ByARGB(255, 0, 150, 60)\n              : Color.ByARGB(255, 235, 160, 0))\n    : Color.ByARGB(255, 200, 30, 30);\nreport = [\"De mm = \" + Math.Round(De, 1),\n          \"Ocupação % = \" + Math.Round(K * 100, 1),\n          \"Dt mm = \" + Math.Round(Dt, 1),\n          \"min 1,3 x Dt mm = \" + Math.Round(Demin, 1),\n          \"RESULTADO: \" + esito];"
     },
     {
       "Id": "a36e8d5c24f771b9f52a7e3b16840c50",

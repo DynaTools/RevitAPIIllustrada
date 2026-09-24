@@ -1,5 +1,0 @@
-title: "Clash\nDetective"
-tooltip: "Detect clashes between two sources (host or links) and export a PDF report to the Desktop."
-author: "Paulo Giavoni"
-engine_type: cpython
-min_revit_version: "2021"

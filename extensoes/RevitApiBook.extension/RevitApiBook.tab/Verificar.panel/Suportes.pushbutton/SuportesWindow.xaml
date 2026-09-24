@@ -1,0 +1,26 @@
+<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Suportes"
+    Width="320"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterScreen"
+    ResizeMode="NoResize"
+    FontFamily="Segoe UI">
+    <!-- A casca da janela: um título, um contêiner vazio (righe)
+         que o script preenche com uma linha por cabo, e o botão Verificar.
+         Veja a seção "No pyRevit" do Capítulo 8.3 do livro. -->
+    <StackPanel Margin="16">
+        <TextBlock Text="Cabos na eletrocalha"
+                   FontWeight="Bold"
+                   FontSize="13"
+                   Margin="0,0,0,12"/>
+        <!-- o script acrescenta aqui uma linha (nome + caixa) por cabo -->
+        <StackPanel x:Name="righe"/>
+        <Button x:Name="verifica"
+                Content="Verificar"
+                Height="30"
+                Margin="0,14,0,0"
+                Click="verifica_click"/>
+    </StackPanel>
+</Window>

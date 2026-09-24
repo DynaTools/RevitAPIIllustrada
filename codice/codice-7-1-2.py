@@ -19,7 +19,7 @@ from System.Collections.Generic import List
 MM_FT     = 1 / 304.8
 FRANCO    = 25.0 * MM_FT          # folga radial, por lado
 SPORGENZA = 25.0 * MM_FT          # além das duas faces, por lado
-NOME_WS   = "FOROMETRIA"
+NOME_WS   = "FURAÇÃO"
 
 # ============================================================
 # 1. O SEGMENTO DENTRO DO HOSPEDEIRO           [ENG] + [REVIT]
@@ -81,7 +81,7 @@ def cilindro(centro, direzione, raggio, lung):
 
 # ============================================================
 # 3. O WORKSET E A COLOCAÇÃO                   [REVIT] + [OUT]
-#    o workset FOROMETRIA é procurado, e se falta nasce aqui;
+#    o workset FURAÇÃO é procurado, e se falta nasce aqui;
 #    cada furo é atribuído a ele pelo parâmetro de partição
 # ============================================================
 categoria = ElementId(BuiltInCategory.OST_Mass)
@@ -102,7 +102,7 @@ for centro, direzione, raggio, lung, id_imp in fori:
     ds = DirectShape.CreateElement(doc, categoria)
     ds.SetShape(List[GeometryObject](
         [cilindro(centro, direzione, raggio, lung)]))
-    ds.SetName("Foro D{:.0f} conduit {}".format(
+    ds.SetName("Furo D{:.0f} eletroduto {}".format(
         raggio * 2 / MM_FT, id_imp))
     if ws_id is not None:
         ds.get_Parameter(

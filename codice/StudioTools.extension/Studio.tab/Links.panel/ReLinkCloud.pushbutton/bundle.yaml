@@ -1,5 +1,0 @@
-title: "ReLink\nCloud"
-tooltip: "Re-link broken cloud (ACC) links by name using the LOCAL Desktop Connector cache (no APS API, no Account Admin needed). Finds the current Model GUID of each file and re-links it on the cloud (does NOT convert to local). Requires Desktop Connector installed, signed in and the project synced. Shows a preview before applying."
-author: "Paulo Giavoni"
-engine_type: cpython
-min_revit_version: "2021"

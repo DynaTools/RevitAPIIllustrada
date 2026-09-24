@@ -1,5 +1,0 @@
-title: "Space\nRefresh"
-tooltip: "Apaga todos os Spaces do modelo, habilita o Room Bounding nos links vinculados, recria os Spaces nas regioes fechadas (por nivel/fase), re-tagueia usando o tipo de tag de Space que ja existe no modelo e copia os nomes dos Rooms dos links para os novos Spaces (match por geometria). Se nao houver tag carregada, recria os Spaces sem tag. Mostra um resumo antes de aplicar."
-author: "Paulo Giavoni"
-engine_type: cpython
-min_revit_version: "2021"

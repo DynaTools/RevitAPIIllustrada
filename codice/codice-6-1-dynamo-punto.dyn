@@ -1,7 +1,7 @@
 {
   "Uuid": "43347f0e-f83c-5f52-a3e0-6816c12f3eb3",
   "IsCustomNode": false,
-  "Description": "Il punto: gli estremi dell'asse della EC-01 e la distanza fra loro (12 m). Palestra del capitolo 6.1; si apre anche in Dynamo Sandbox.",
+  "Description": "O ponto: as extremidades do eixo da EC-01 e a distância entre elas (12 m). Academia do capítulo 6.1; abre também no Dynamo Sandbox.",
   "Name": "cap-6-1-dynamo-punto",
   "ElementResolver": {
     "ResolutionMap": {

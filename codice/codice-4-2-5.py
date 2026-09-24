@@ -7,5 +7,5 @@ el = doc.GetElement(list(uidoc.Selection.GetElementIds())[0])
 
 t = Transaction(doc, "COD - teste em um quadro")
 t.Start()
-el.LookupParameter("COD_LOCALE").Set("P02-EL")  # fixado!
+el.LookupParameter("COD_AMBIENTE").Set("P02-EL")  # fixado!
 t.Commit()

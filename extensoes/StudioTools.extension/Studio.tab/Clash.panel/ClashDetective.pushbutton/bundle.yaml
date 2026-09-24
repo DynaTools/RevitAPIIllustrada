@@ -1,0 +1,5 @@
+title: "Clash\nDetective"
+tooltip: "Detecta interferências (clashes) entre duas fontes (modelo host ou links) e exporta um relatório em PDF para a Área de Trabalho."
+author: "Paulo Giavoni"
+engine_type: cpython
+min_revit_version: "2021"

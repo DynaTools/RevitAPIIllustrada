@@ -15,7 +15,7 @@ uidoc = __revit__.ActiveUIDocument
 doc   = uidoc.Document
 
 percorso = os.path.join(os.path.expanduser("~"), "Documents",
-                        "wbs_elementi.csv")
+                        "wbs_elementos.csv")
 CAMPI = ["WBS_s01", "WBS_s02", "WBS_s03", "WBS_t01", "WBS_t02"]
 
 righe = []
@@ -45,7 +45,7 @@ for r in righe:
             continue
         par.Set(r[campo] or "")
     codice = "-".join(r[c] for c in CAMPI if r[c])
-    par = el.LookupParameter("WBS_CODICE")
+    par = el.LookupParameter("WBS_CODIGO")
     if par is not None:
         par.Set(codice)
     else:

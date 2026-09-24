@@ -129,7 +129,7 @@ t.Start()
 for id_imp, id_osp, s in clash:
     ds = DirectShape.CreateElement(doc, categoria)
     ds.SetShape(List[GeometryObject]([s]))
-    ds.SetName("Clash conduit {} vs {}".format(id_imp, id_osp))
+    ds.SetName("Clash eletroduto {} vs {}".format(id_imp, id_osp))
 t.Commit()
 
 print("Eletrodutos no modelo ativo: {}".format(len(conduit)))

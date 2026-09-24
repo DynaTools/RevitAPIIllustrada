@@ -1,0 +1,6 @@
+title: Comprimento
+tooltip: >-
+  Mede o comprimento real de um circuito: soma os trechos retos e o arco
+  das conexões, depois acrescenta 5% de sobra. Clique no botão, selecione
+  todo o percurso no modelo e confirme com Concluir.
+author: Paulo Giavoni

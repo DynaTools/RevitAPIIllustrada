@@ -1,5 +1,0 @@
-title: "Refresh\nGraphics"
-tooltip: "Fixes the glitch where a 3D view shows nothing but the elements are still there (selectable). Clears stuck temporary view modes, toggles Detail Level / Visual Style, regenerates the model, refreshes and bounces the ACTIVE view, and frees managed memory. Nothing is deleted; settings are restored. Run it with the broken view active."
-author: "Paulo Giavoni"
-engine_type: ironpython
-min_revit_version: "2021"

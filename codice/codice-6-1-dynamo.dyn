@@ -1,7 +1,7 @@
 {
   "Uuid": "e827e8e8-e2fa-5b5b-ba02-9513ec67dc15",
   "IsCustomNode": false,
-  "Description": "Grafo del capitolo 6.1 (primitive geometriche): il segmento della EC-01, il prodotto scalare e l'angolo -- geometria pura, si apre anche in Dynamo Sandbox.",
+  "Description": "Grafo do capítulo 6.1 (primitivas geométricas): o segmento da EC-01, o produto escalar e o ângulo -- geometria pura, abre também no Dynamo Sandbox.",
   "Name": "cap-6-1-dynamo",
   "ElementResolver": {
     "ResolutionMap": {

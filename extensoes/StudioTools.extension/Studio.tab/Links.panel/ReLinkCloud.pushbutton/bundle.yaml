@@ -1,0 +1,5 @@
+title: "ReLink\nCloud"
+tooltip: "Re-linka pelo nome os links de nuvem (ACC) quebrados, usando o cache LOCAL do Desktop Connector (sem APS API, sem precisar do Account Admin). Encontra o Model GUID atual de cada arquivo e re-linka o link na nuvem (NÃO converte para local). Requer o Desktop Connector instalado, com login feito e o projeto sincronizado. Mostra uma prévia antes de aplicar."
+author: "Paulo Giavoni"
+engine_type: cpython
+min_revit_version: "2021"

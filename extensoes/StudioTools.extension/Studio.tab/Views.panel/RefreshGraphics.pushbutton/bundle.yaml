@@ -1,0 +1,5 @@
+title: "Refresh\nGraphics"
+tooltip: "Corrige o defeito em que uma vista 3D não mostra nada, mas os elementos continuam lá (selecionáveis). Limpa modos de vista temporários travados, alterna Nível de detalhe / Estilo visual, regenera o modelo, atualiza e reativa a vista ATIVA e libera memória gerenciada. Nada é excluído; as configurações são restauradas. Rode com a vista problemática ativa."
+author: "Paulo Giavoni"
+engine_type: ironpython
+min_revit_version: "2021"

@@ -7,14 +7,14 @@ panels = FilteredElementCollector(doc)\
     .OfCategory(BuiltInCategory.OST_ElectricalEquipment)\
     .WhereElementIsNotElementType()         # LEI III
 
-t = Transaction(doc, "COD_LOCALE - quadros elétricos")
+t = Transaction(doc, "COD_AMBIENTE - quadros elétricos")
 t.Start()
 for q in panels:                           # R7
     level = doc.GetElement(q.LevelId)       # dominó via Id
     if not level:                           # quadro sem nível: pula
         continue
     code = level.Name[:3] + "-EL"         # P02-EL, P03-EL...
-    p = q.LookupParameter("COD_LOCALE")
+    p = q.LookupParameter("COD_AMBIENTE")
     if p and not p.IsReadOnly:
         p.Set(code)
 t.Commit()
